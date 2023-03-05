@@ -9,7 +9,7 @@ import {
 export const verify = {
   data: new SlashCommandBuilder()
     .setName("agree")
-    .setDescription("verify member and accept rules"),
+    .setDescription("Please verify that you are a member and accept the rules."),
 
   exec: async (interaction: Interaction) => {
     if (!interaction.isChatInputCommand()) return;
