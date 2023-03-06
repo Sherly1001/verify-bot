@@ -1,4 +1,11 @@
-import { Client, Events, GatewayIntentBits, REST, Routes } from "discord.js";
+import {
+  ActivityType,
+  Client,
+  Events,
+  GatewayIntentBits,
+  REST,
+  Routes,
+} from "discord.js";
 import commands from "./commands";
 import { token } from "./const";
 
@@ -18,6 +25,7 @@ client.once(Events.ClientReady, (c) => {
   rest.put(Routes.applicationCommands(c.application.id), {
     body: commands.map((c) => c.data.toJSON()),
   });
+  client.user?.setActivity("with Tanjiro niichan", { type: ActivityType.Playing });
 });
 
 client.on(Events.InteractionCreate, (i) => {
